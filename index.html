@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sujeet Singh</title>
+  <meta name="description" content="Sujeet Singh, Software Engineer II. I build AI agents that take calls, move money, and handle files.">
+  <meta property="og:title" content="Sujeet Singh">
+  <meta property="og:description" content="Software Engineer II. Projects: Kharidwise, Resolve, SlotSaver, Stapler.">
+  <meta property="og:image" content="https://sujeet121696.github.io/assets/sujeet.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314161a'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='28' font-weight='700' fill='%2300b0ff' text-anchor='middle'%3ESS%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url(assets/fonts/barlow-condensed-700.woff2) format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-weight: 400; font-display: swap; src: url(assets/fonts/plex-mono-400.woff2) format("woff2"); }
+    /* kharidwise palette */
+    :root {
+      --bg: #f6f4fb; --card: #ffffff; --line: #dde3ea; --fg: #0a2540; --muted: #5c6b80;
+      --accent: #0077b6; --green: #00a844; --lav: #6a5acd; --note: #f3effa;
+      --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14161a; --card: #1a1d22; --line: #2b2f36; --fg: #e6e8eb; --muted: #9aa2ad;
+        --accent: #00b0ff; --green: #00c853; --lav: #d1c4e9; --note: #211f2b;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--fg); font: 15px/1.6 var(--mono); }
+    a { color: inherit; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    header { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .logo { font: 700 22px var(--display); letter-spacing: 1px; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    nav { display: flex; gap: 18px; font-size: 13px; }
+    nav a { text-decoration: none; color: var(--muted); }
+    nav a:hover { color: var(--accent); }
+
+    .kicker { font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase; color: var(--accent); }
+    h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1; letter-spacing: .5px; }
+    h2 { font-size: clamp(32px, 5vw, 44px); text-transform: uppercase; margin: 6px 0 28px; }
+    section { padding: 72px 0; border-bottom: 1px solid var(--line); }
+
+    .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+    .badge { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 1px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--note); }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .3; } }
+    .hello { color: var(--muted); font-size: 18px; margin-top: 28px; }
+    .name { font-size: clamp(72px, 12vw, 132px); text-transform: uppercase; margin: 4px 0 8px; }
+    .name span { display: block; background: linear-gradient(135deg, var(--lav), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .role { font: 700 28px var(--display); }
+    .tagline { color: var(--muted); margin: 12px 0 24px; max-width: min(46ch, 100%); }
+    .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn { font-size: 13px; padding: 10px 16px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); text-decoration: none; }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn:hover { border-color: var(--accent); }
+    .photo { position: relative; justify-self: center; width: min(100%, 340px); }
+    .photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); display: block; }
+    .photo::before { content: ""; position: absolute; inset: -14px; border: 2px dashed color-mix(in srgb, var(--accent) 35%, transparent); border-radius: 28px; z-index: -1; }
+
+    .grid { display: grid; gap: 20px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px; position: relative; overflow: hidden; }
+    .card.bar::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: var(--c, var(--accent)); }
+    .card .top { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; letter-spacing: 1.4px; color: var(--c, var(--accent)); text-transform: uppercase; }
+    .card h3 { font-size: 40px; text-transform: uppercase; margin: 14px 0 6px; }
+    .card .kind { color: var(--c, var(--accent)); font-size: 14px; }
+    .card p { color: var(--muted); font-size: 13.5px; margin: 12px 0 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { font-size: 11px; letter-spacing: .6px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); text-transform: uppercase; }
+    .links { display: flex; gap: 16px; margin-top: 18px; font-size: 13px; }
+    .links a { color: var(--c, var(--accent)); text-decoration: none; }
+    .links a:hover { text-decoration: underline; }
+
+    .stack h4 { font-size: 12px; letter-spacing: 1.6px; color: var(--c); text-transform: uppercase; font-weight: 500; margin-bottom: 12px; }
+    .item { display: flex; align-items: center; gap: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; margin-bottom: 12px; font: 700 22px var(--display); }
+    .item b { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 9px; font: 400 12px var(--mono); color: var(--c); background: var(--note); border: 1px solid color-mix(in srgb, var(--c) 50%, transparent); }
+    .also { color: var(--muted); font-size: 13px; text-align: center; margin-top: 16px; }
+
+    .sports { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 24px; }
+    .sports .kicker { margin-right: 8px; }
+
+    .connect { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .connect a { display: flex; align-items: center; gap: 14px; text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+    .connect a:hover { border-color: var(--c); }
+    .connect b { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 11px; font: 400 14px var(--mono); color: var(--c); background: var(--note); border: 1px solid color-mix(in srgb, var(--c) 50%, transparent); flex: none; }
+    .connect strong { display: block; font: 700 22px var(--display); }
+    .connect small { color: var(--muted); font-size: 12px; }
+    footer { padding: 32px 0; color: var(--muted); font-size: 12px; text-align: center; }
+
+    .c-cyan { --c: var(--accent); } .c-green { --c: var(--green); } .c-lav { --c: var(--lav); } .c-fg { --c: var(--fg); }
+
+    @media (max-width: 860px) {
+      .hero .wrap, .grid.two, .grid.three, .connect { grid-template-columns: minmax(0, 1fr); }
+      .photo { order: -1; width: min(70%, 240px); }
+      .card h3 { font-size: 34px; }
+      nav { display: none; }
+      section { padding: 56px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="logo" href="#top">SUJEET<span>.</span></a>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#stack">Stack</a>
+        <a href="#beyond">Beyond work</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <span class="badge">BUILDING AI AGENTS <i class="dot"></i></span>
+          <p class="hello">Hi there, I'm</p>
+          <h1 class="name">Sujeet <span>Singh</span></h1>
+          <p class="role">Software Engineer II</p>
+          <p class="tagline">I build AI agents that do the work - they take calls, move money, and handle your files.</p>
+          <div class="btns">
+            <a class="btn primary" href="#projects">See my projects</a>
+            <a class="btn" href="https://www.linkedin.com/in/sujeet-singh121696/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/sujeet121696" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="photo"><img src="assets/sujeet.jpg" alt="Sujeet Singh" width="544" height="680"></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <p class="kicker">01 / Projects</p>
+        <h2>Things I've built.</h2>
+        <div class="grid two">
+          <article class="card bar c-cyan">
+            <div class="top"><span>01</span><span>Live</span></div>
+            <h3>Kharidwise</h3>
+            <p class="kind">Fit-first buying advice for India</p>
+            <p>Checks the published specs, says what is missing, and ranks products on fit, not commission.</p>
+            <div class="tags"><span class="tag">TypeScript</span><span class="tag">Astro</span><span class="tag">Cloudflare Workers</span></div>
+            <div class="links"><a href="https://kharidwise.com" target="_blank" rel="noopener">kharidwise.com -&gt;</a></div>
+          </article>
+          <article class="card bar c-green">
+            <div class="top"><span>02</span><span>Great Agent Hackathon '26</span></div>
+            <h3>Resolve</h3>
+            <p class="kind">Voice support agent</p>
+            <p>Verifies the caller by OTP, clears the case through an independent policy guard, then issues a refund mid-call.</p>
+            <div class="tags"><span class="tag">TypeScript</span><span class="tag">ElevenLabs</span><span class="tag">Freshdesk</span><span class="tag">Dodo Payments</span></div>
+            <div class="links"><a href="https://github.com/sujeet121696/resolve" target="_blank" rel="noopener">Code -&gt;</a><a href="https://youtu.be/SwnDqiQuOmo" target="_blank" rel="noopener">Video -&gt;</a></div>
+          </article>
+          <article class="card bar c-lav">
+            <div class="top"><span>03</span><span></span></div>
+            <h3>SlotSaver</h3>
+            <p class="kind">AI front-desk agent</p>
+            <p>Confirm-calls tomorrow's patients; when someone cancels, it calls the waitlist to refill the slot.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Strands Agents</span><span class="tag">CALL-E</span><span class="tag">Groq</span></div>
+            <div class="links"><a href="https://github.com/sujeet121696/slotsaver" target="_blank" rel="noopener">Code -&gt;</a></div>
+          </article>
+          <article class="card bar c-cyan">
+            <div class="top"><span>04</span><span>WebMCP Challenge</span></div>
+            <h3>Stapler</h3>
+            <p class="kind">Agent-driven PDF workspace</p>
+            <p>An AI agent finds the right pages, merges and downloads them through WebMCP tools. Files never leave the browser.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">WebMCP</span><span class="tag">pdf-lib</span></div>
+            <div class="links"><a href="https://github.com/sujeet121696/stapler" target="_blank" rel="noopener">Code -&gt;</a><a href="https://stapler-equ.pages.dev/" target="_blank" rel="noopener">Live app -&gt;</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="stack">
+      <div class="wrap">
+        <p class="kicker">02 / Stack</p>
+        <h2>What I build with.</h2>
+        <div class="grid three">
+          <div class="c-cyan">
+            <h4>Languages</h4>
+            <div class="item"><b>TS</b>TypeScript</div>
+            <div class="item"><b>PY</b>Python</div>
+            <div class="item"><b>NB</b>Jupyter</div>
+          </div>
+          <div class="c-lav">
+            <h4>Frontend &amp; runtime</h4>
+            <div class="item"><b>RE</b>React</div>
+            <div class="item"><b>VI</b>Vite</div>
+            <div class="item"><b>NO</b>Node.js</div>
+          </div>
+          <div class="c-green">
+            <h4>Agents &amp; cloud</h4>
+            <div class="item"><b>AI</b>LLM APIs</div>
+            <div class="item"><b>VO</b>Voice AI</div>
+            <div class="item"><b>CF</b>Cloudflare</div>
+          </div>
+        </div>
+        <p class="also">Astro · Claude · Groq · Gemini · Sarvam · ElevenLabs · AWS Strands · WebMCP · Freshdesk · Dodo Payments</p>
+      </div>
+    </section>
+
+    <section id="beyond">
+      <div class="wrap">
+        <p class="kicker">03 / Beyond work</p>
+        <h2>Outside the day job.</h2>
+        <div class="grid three">
+          <article class="card bar c-cyan">
+            <div class="top"><span>01 / 03</span></div>
+            <h3>Creating</h3>
+            <p class="kind">YouTube channels</p>
+            <p>Making videos on my two YouTube channels.</p>
+            <div class="links"><a href="https://www.youtube.com/@kharidwise" target="_blank" rel="noopener">@kharidwise</a><a href="https://www.youtube.com/@Kodethos" target="_blank" rel="noopener">@Kodethos</a></div>
+          </article>
+          <article class="card bar c-green">
+            <div class="top"><span>02 / 03</span></div>
+            <h3>Hacking</h3>
+            <p class="kind">Hackathons</p>
+            <p>Building at hackathons. Resolve and Stapler were both hackathon builds.</p>
+            <div class="tags"><span class="tag">Great Agent Hackathon '26</span><span class="tag">WebMCP Challenge</span></div>
+          </article>
+          <article class="card bar c-lav">
+            <div class="top"><span>03 / 03</span></div>
+            <h3>Mentoring</h3>
+            <p class="kind">Helping juniors</p>
+            <p>Mentoring juniors who need guidance to grow.</p>
+          </article>
+        </div>
+        <div class="sports">
+          <span class="kicker">Off the screen</span>
+          <span class="tag">Cricket</span><span class="tag">Badminton</span><span class="tag">Table tennis</span><span class="tag">Football</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="connect">
+      <div class="wrap">
+        <p class="kicker">04 / Connect</p>
+        <h2>Let's connect.</h2>
+        <div class="connect">
+          <a class="c-cyan" href="https://www.linkedin.com/in/sujeet-singh121696/" target="_blank" rel="noopener"><b>in</b><span><strong>LinkedIn</strong><small>sujeet-singh121696</small></span></a>
+          <a class="c-lav" href="https://www.instagram.com/_sujeet_singh_/" target="_blank" rel="noopener"><b>ig</b><span><strong>Instagram</strong><small>@_sujeet_singh_</small></span></a>
+          <a class="c-fg" href="https://github.com/sujeet121696" target="_blank" rel="noopener"><b>gh</b><span><strong>GitHub</strong><small>@sujeet121696</small></span></a>
+          <a class="c-green" href="https://www.youtube.com/@kharidwise" target="_blank" rel="noopener"><b>yt</b><span><strong>YouTube</strong><small>@kharidwise</small></span></a>
+          <a class="c-green" href="https://www.youtube.com/@Kodethos" target="_blank" rel="noopener"><b>yt</b><span><strong>YouTube</strong><small>@Kodethos</small></span></a>
+          <a class="c-cyan" href="https://leetcode.com/u/sujeet9tean/" target="_blank" rel="noopener"><b>lc</b><span><strong>LeetCode</strong><small>sujeet9tean</small></span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Sujeet Singh</footer>
+</body>
+</html>
