@@ -5,9 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sujeet Singh</title>
   <meta name="description" content="Sujeet Singh, Software Engineer II. I build AI agents that take calls, move money, and handle files.">
+  <link rel="canonical" href="https://sujeet121696.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sujeet121696.github.io/">
   <meta property="og:title" content="Sujeet Singh">
   <meta property="og:description" content="Software Engineer II. Projects: Kharidwise, Resolve, SlotSaver, Stapler.">
   <meta property="og:image" content="https://sujeet121696.github.io/assets/sujeet.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#14161a">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314161a'/%3E%3Ctext x='32' y='43' font-family='monospace' font-size='28' font-weight='700' fill='%2300b0ff' text-anchor='middle'%3ESS%3C/text%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/barlow-condensed-700.woff2" as="font" type="font/woff2" crossorigin>
   <style>
@@ -16,14 +21,14 @@
     /* kharidwise palette */
     :root {
       --bg: #f6f4fb; --card: #ffffff; --line: #dde3ea; --fg: #0a2540; --muted: #5c6b80;
-      --accent: #0077b6; --green: #00a844; --lav: #6a5acd; --note: #f3effa;
+      --accent: #006aa3; --green: #00782f; --lav: #6a5acd; --note: #f3effa; --on-accent: #ffffff;
       --display: "Barlow Condensed", "Arial Narrow", sans-serif;
       --mono: "IBM Plex Mono", ui-monospace, monospace;
     }
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #14161a; --card: #1a1d22; --line: #2b2f36; --fg: #e6e8eb; --muted: #9aa2ad;
-        --accent: #00b0ff; --green: #00c853; --lav: #d1c4e9; --note: #211f2b;
+        --accent: #00b0ff; --green: #00c853; --lav: #d1c4e9; --note: #211f2b; --on-accent: #0a2540;
       }
     }
     * { box-sizing: border-box; margin: 0; }
@@ -32,7 +37,7 @@
     a { color: inherit; }
     .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-    header { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+    header { position: sticky; top: 0; z-index: 5; background: var(--bg); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
     header .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
     .logo { font: 700 22px var(--display); letter-spacing: 1px; text-decoration: none; }
     .logo span { color: var(--accent); }
@@ -53,13 +58,14 @@
     .name { font-size: clamp(72px, 12vw, 132px); text-transform: uppercase; margin: 4px 0 8px; }
     .name span { display: block; background: linear-gradient(135deg, var(--lav), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .role { font: 700 28px var(--display); }
-    .tagline { color: var(--muted); margin: 12px 0 24px; max-width: min(46ch, 100%); }
+    .roles { margin-top: 12px; }
+    .tagline { color: var(--muted); margin: 16px 0 24px; max-width: min(46ch, 100%); }
     .btns { display: flex; flex-wrap: wrap; gap: 10px; }
     .btn { font-size: 13px; padding: 10px 16px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); text-decoration: none; }
-    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
     .btn:hover { border-color: var(--accent); }
     .photo { position: relative; justify-self: center; width: min(100%, 340px); }
-    .photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); display: block; }
+    .photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 20px; border: 1px solid var(--line); display: block; }
     .photo::before { content: ""; position: absolute; inset: -14px; border: 2px dashed color-mix(in srgb, var(--accent) 35%, transparent); border-radius: 28px; z-index: -1; }
 
     .grid { display: grid; gap: 20px; }
@@ -99,7 +105,8 @@
       .hero .wrap, .grid.two, .grid.three, .connect { grid-template-columns: minmax(0, 1fr); }
       .photo { order: -1; width: min(70%, 240px); }
       .card h3 { font-size: 34px; }
-      nav { display: none; }
+      nav { gap: 14px; font-size: 12px; }
+      nav .wide { display: none; }
       section { padding: 56px 0; }
     }
     @media (prefers-reduced-motion: reduce) { * { animation: none !important; } html { scroll-behavior: auto; } }
@@ -112,7 +119,7 @@
       <nav>
         <a href="#projects">Projects</a>
         <a href="#stack">Stack</a>
-        <a href="#beyond">Beyond work</a>
+        <a class="wide" href="#beyond">Beyond work</a>
         <a href="#connect">Connect</a>
       </nav>
     </div>
@@ -122,10 +129,11 @@
     <section class="hero">
       <div class="wrap">
         <div>
-          <span class="badge">BUILDING AI AGENTS <i class="dot"></i></span>
+          <span class="badge">BUILDING AI AGENTS <i class="dot" aria-hidden="true"></i></span>
           <p class="hello">Hi there, I'm</p>
           <h1 class="name">Sujeet <span>Singh</span></h1>
           <p class="role">Software Engineer II</p>
+          <div class="tags roles"><span class="tag">Voice AI agent builder</span><span class="tag">Agentic tools with WebMCP</span><span class="tag">Building kharidwise.com</span></div>
           <p class="tagline">I build AI agents that do the work - they take calls, move money, and handle your files.</p>
           <div class="btns">
             <a class="btn primary" href="#projects">See my projects</a>
